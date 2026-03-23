@@ -1,0 +1,730 @@
+/* style.css - INFINITY EMPIRE - Golden Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* خلفية ذهبية متحركة */
+.golden-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, #1a1a0a 0%, #0a0a05 50%, #050502 100%);
+    z-index: -2;
+}
+
+.golden-bg::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 215, 0, 0.03) 0px,
+        rgba(255, 215, 0, 0.03) 2px,
+        transparent 2px,
+        transparent 8px
+    );
+    animation: goldenMove 20s linear infinite;
+}
+
+@keyframes goldenMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* جزيئات ذهبية */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particles::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 215, 0, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: particlesFloat 20s linear infinite;
+}
+
+@keyframes particlesFloat {
+    0% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(-30px); opacity: 0.6; }
+    100% { transform: translateY(0); opacity: 0.3; }
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* الهيدر */
+.golden-header {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.header-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(ellipse, rgba(255, 215, 0, 0.15), transparent);
+    filter: blur(50px);
+    animation: headerPulse 3s ease-in-out infinite;
+}
+
+@keyframes headerPulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.glowing-text {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700, #FF8C00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: textGlow 2s ease-in-out infinite;
+    letter-spacing: 2px;
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+    50% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+}
+
+.title-border {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
+    margin: 20px auto;
+    animation: borderFlow 2s linear infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes borderFlow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+.establish-date {
+    font-size: 1.1rem;
+    color: #FFD700;
+}
+
+.establish-date span {
+    font-weight: bold;
+    text-shadow: 0 0 10px gold;
+}
+
+/* قسم الترحيب */
+.welcome-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.welcome-section:hover {
+    border-color: #FFD700;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+.welcome-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.empire-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.5s;
+}
+
+.empire-banner:hover {
+    transform: scale(1.05);
+}
+
+.banner-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    pointer-events: none;
+}
+
+.welcome-text {
+    padding: 20px;
+}
+
+.gold-title {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.gold-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    margin-bottom: 20px;
+    animation: linePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+    0%, 100% { width: 80px; }
+    50% { width: 120px; }
+}
+
+.welcome-text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.empire-motto {
+    font-size: 1.3rem;
+    color: #FFD700;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* ========== مشغل الأغنية الرئيسي ========== */
+.main-song-section {
+    margin: 50px 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(20, 15, 5, 0.8));
+    border-radius: 30px;
+    padding: 30px;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.main-song-section:hover {
+    border-color: #FFD700;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+.main-song-card {
+    text-align: center;
+}
+
+.song-header h3 {
+    color: #FFD700;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    text-shadow: 0 0 10px gold;
+}
+
+.song-name {
+    color: #FFA500;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.song-player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.song-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.song-play-btn {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    color: #000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.song-play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+}
+
+.song-wave {
+    flex: 1;
+    min-width: 200px;
+}
+
+.song-wave-bars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 60px;
+}
+
+.song-wave-bar {
+    width: 8px;
+    height: 25px;
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+    border-radius: 4px;
+    transition: height 0.1s ease;
+}
+
+.song-wave-bar.active {
+    animation: songWave 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes songWave {
+    0% { height: 15px; }
+    100% { height: 55px; }
+}
+
+.song-wave-bar:nth-child(1) { animation-delay: 0s; }
+.song-wave-bar:nth-child(2) { animation-delay: 0.05s; }
+.song-wave-bar:nth-child(3) { animation-delay: 0.1s; }
+.song-wave-bar:nth-child(4) { animation-delay: 0.15s; }
+.song-wave-bar:nth-child(5) { animation-delay: 0.2s; }
+.song-wave-bar:nth-child(6) { animation-delay: 0.25s; }
+.song-wave-bar:nth-child(7) { animation-delay: 0.3s; }
+.song-wave-bar:nth-child(8) { animation-delay: 0.35s; }
+.song-wave-bar:nth-child(9) { animation-delay: 0.4s; }
+.song-wave-bar:nth-child(10) { animation-delay: 0.45s; }
+.song-wave-bar:nth-child(11) { animation-delay: 0.5s; }
+.song-wave-bar:nth-child(12) { animation-delay: 0.55s; }
+
+.song-time {
+    color: #FFD700;
+    font-size: 0.9rem;
+    min-width: 90px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.song-progress {
+    flex: 2;
+    min-width: 200px;
+}
+
+.song-progress-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.song-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+/* قسم المؤسسين */
+.founders-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    position: relative;
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+    50% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+}
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.founder-card {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(20, 15, 5, 0.8));
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.4s;
+}
+
+.founder-card:hover {
+    transform: translateY(-10px);
+    border-color: #FFD700;
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+.founder-img-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-name {
+    font-size: 1.5rem;
+    color: #FFD700;
+    margin-bottom: 8px;
+}
+
+.founder-title {
+    color: #FFA500;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.founder-desc {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* قسم القبائل */
+.tribes-section {
+    margin-bottom: 80px;
+}
+
+.tribes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.tribe-card {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.tribe-card:hover {
+    transform: translateY(-8px);
+    border-color: #FFD700;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.25);
+}
+
+.tribe-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #FFD700;
+    transition: all 0.3s;
+}
+
+.tribe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tribe-card:hover .tribe-image {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.tribe-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.tribe-founder {
+    color: #FFA500;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.tribe-members {
+    color: #ddd;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.tribe-members span {
+    color: #FFD700;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* أزرار الروابط */
+.links-section {
+    margin: 50px 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.link-btn {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 40px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.link-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.link-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+}
+
+.link-btn.whatsapp:hover {
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* الفوتر */
+.golden-footer {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 15, 5, 0.9));
+    border-radius: 30px;
+    text-align: center;
+    border-top: 2px solid #FFD700;
+    border-bottom: 2px solid #FFD700;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent);
+    animation: footerPulse 4s ease-in-out infinite;
+}
+
+@keyframes footerPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.footer-logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 15px;
+}
+
+.footer-motto {
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+.footer-copyright {
+    color: #FFA500;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.footer-signature {
+    color: #FFD700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.footer-empire {
+    color: #FFD700;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 968px) {
+    .welcome-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .glowing-text {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .founders-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .links-section {
+        gap: 10px;
+    }
+    
+    .link-btn {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .song-player {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .song-time {
+        text-align: center;
+    }
+    
+    .song-wave-bars {
+        gap: 5px;
+    }
+    
+    .song-wave-bar {
+        width: 5px;
+    }
+    
+    .song-header h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .glowing-text {
+        font-size: 1rem;
+    }
+    
+    .gold-title {
+        font-size: 1.3rem;
+    }
+    
+    .founder-img-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .founder-name {
+        font-size: 1.2rem;
+    }
+    
+    .tribe-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .tribe-name {
+        font-size: 1rem;
+    }
+    
+    .link-btn {
+        padding: 8px 15px;
+        font-size: 0.7rem;
+    }
+    
+    .footer-logo {
+        font-size: 1rem;
+    }
+    
+    .footer-signature {
+        font-size: 0.7rem;
+    }
+}
